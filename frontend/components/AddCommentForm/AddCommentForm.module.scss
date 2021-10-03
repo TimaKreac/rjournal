@@ -1,0 +1,25 @@
+.form {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  position: relative;
+  padding: 10px 17px !important;
+  background-color: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  cursor: pointer !important;
+}
+
+.inputField {
+  border-radius: 10px;
+  cursor: pointer !important;
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.addButton {
+  display: block !important;
+  margin-top: 10px !important;
+  margin-left: auto !important;
+}
