@@ -8,11 +8,23 @@ import {
   Menu as MenuIcon,
   ExpandMoreOutlined as ArrowBottom,
   NotificationsNoneOutlined as NotificationIcon,
+  PersonOutlineOutlined as PersonIcon,
 } from '@material-ui/icons'
 
 import styles from './Header.module.scss'
+import { AuthDialog } from '../AuthDialog'
 
 export const Header: React.FC = () => {
+  const [dialogVisible, setDialogVisible] = React.useState(false)
+
+  const handleClickOpen = () => {
+    setDialogVisible(true)
+  }
+
+  const handleClose = () => {
+    setDialogVisible(false)
+  }
+
   return (
     <Paper classes={{ root: styles.root }} elevation={0}>
       <div className='d-flex align-center'>
@@ -50,7 +62,7 @@ export const Header: React.FC = () => {
         <IconButton>
           <NotificationIcon />
         </IconButton>
-        <Link href='/profile/1'>
+        {/* <Link href='/profile/1'>
           <a className='d-flex align-center'>
             <Avatar
               className={styles.avatar}
@@ -59,8 +71,13 @@ export const Header: React.FC = () => {
             />
             <ArrowBottom />
           </a>
-        </Link>
+        </Link> */}
+        <Button className='d-flex' onClick={handleClickOpen}>
+          <PersonIcon />
+          Войти
+        </Button>
       </div>
+      <AuthDialog onClose={handleClose} open={dialogVisible} />
     </Paper>
   )
 }
